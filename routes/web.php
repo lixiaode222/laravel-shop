@@ -12,7 +12,9 @@
 */
 
 //首页
-Route::get('/', 'PagesController@root')->name('root');
+Route::redirect('/', '/products')->name('root');
+//商品列表页面
+Route::get('products', 'ProductsController@index')->name('products.index');
 //登陆注册的相关路由
 Auth::routes();
 
