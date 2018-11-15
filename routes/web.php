@@ -68,3 +68,4 @@ Route::get('products', 'ProductsController@index')->name('products.index');
 //商品详情页面
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 
+
