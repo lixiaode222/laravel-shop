@@ -13,10 +13,6 @@
 
 //首页
 Route::redirect('/', '/products')->name('root');
-//商品列表页面
-Route::get('products', 'ProductsController@index')->name('products.index');
-//商品详情页面
-Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 //登陆注册的相关路由
 Auth::routes();
 
@@ -50,6 +46,13 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('products/{product}/favorite', 'ProductsController@favor')->name('products.favor');
         //取消收藏商品逻辑
         Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
+        //用户收藏商品列表页面
+        Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
     });
 });
+
+//商品列表页面
+Route::get('products', 'ProductsController@index')->name('products.index');
+//商品详情页面
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 
