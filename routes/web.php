@@ -15,6 +15,8 @@
 Route::redirect('/', '/products')->name('root');
 //商品列表页面
 Route::get('products', 'ProductsController@index')->name('products.index');
+//商品详情页面
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 //登陆注册的相关路由
 Auth::routes();
 
