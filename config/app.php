@@ -65,6 +65,9 @@ return [
     |
     */
 
+    //订单的有效时间
+    'order_ttl' => 1800,
+
     'timezone' => 'UTC',
 
     /*
