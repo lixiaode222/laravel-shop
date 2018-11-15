@@ -48,11 +48,11 @@ Route::group(['middleware' => 'auth'], function() {
         Route::delete('products/{product}/favorite', 'ProductsController@disfavor')->name('products.disfavor');
         //用户收藏商品列表页面
         Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
-        //用户加入购物车逻辑(添加订单项逻辑)
+        //用户加入购物车逻辑(添加购物车项逻辑)
         Route::post('cart', 'CartController@add')->name('cart.add');
-        //用户购物车页面(订单项列表页面)
+        //用户购物车页面(购物车列表页面)
         Route::get('cart', 'CartController@index')->name('cart.index');
-        //删除订单项
+        //删除购物车项
         Route::delete('cart/{sku}', 'CartController@remove')->name('cart.remove');
     });
 });

@@ -11,13 +11,13 @@ class CartItem extends Model
 
     public $timestamps = false;
 
-    //模型关联 由订单项得到对应的用户
+    //模型关联 由购物车项得到对应的用户
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    //模型关联 由订单项得到对应的商品sku
+    //模型关联 由购物车项得到对应的商品sku
     public function productSku()
     {
         return $this->belongsTo(ProductSku::class);
