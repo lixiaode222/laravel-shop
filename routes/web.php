@@ -64,6 +64,12 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
         //支付宝支付后前端回调
         Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
+        //用户确认收货逻辑
+        Route::post('orders/{order}/received', 'OrdersController@received')->name('orders.received');
+        //用户评价页面
+        Route::get('orders/{order}/review', 'OrdersController@review')->name('orders.review.show');
+        //用户评价逻辑
+        Route::post('orders/{order}/review', 'OrdersController@sendReview')->name('orders.review.store');
     });
 });
 

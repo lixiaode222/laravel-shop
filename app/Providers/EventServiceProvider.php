@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Event;
 use App\Events\OrderPaid;
 use App\Listeners\UpdateProductSoldCount;
 use App\Listeners\SendOrderPaidMail;
+use App\Events\OrderReviewed;
+use App\Listeners\UpdateProductRating;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -29,6 +31,11 @@ class EventServiceProvider extends ServiceProvider
             UpdateProductSoldCount::class,
             //发送邮件提醒已经完成支付
             SendOrderPaidMail::class,
+        ],
+
+        //用户评价后更新商品评价信息
+        OrderReviewed::class => [
+            UpdateProductRating::class,
         ],
     ];
 
